@@ -144,12 +144,14 @@ A range of tools and technologies will be used to clean, analyze, visualize, and
 •	Power Bl / Tableau: For visualization and dashboard creation.
 •	Visual Studio/ Jupyter Notebooks: For collaborative research and model development.
 
-<img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/7dce0cf8a393f1e7f41ef4afe9488e51e18d6edf/ML%20Models%20Performance%20Metrics.png" /> <br>
+<img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/7dce0cf8a393f1e7f41ef4afe9488e51e18d6edf/ML%20Models%20Performance%20Metrics.png" /> 
+<br>
  
 
-<img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/5edc32fe6e52cfdc21c472fb1e11f3de628cecba/Machine%20Learning%20Models%20performance%20metrics%20bar%20chart.png" /> <br>
+<img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/5edc32fe6e52cfdc21c472fb1e11f3de628cecba/Machine%20Learning%20Models%20performance%20metrics%20bar%20chart.png" /> 
+<br>
  
-  The evaluation metrics show that:
+ ### The evaluation metrics show that:
 
 - Random Forest achieved the best performance (R² ≈ 0.99)
 - XGBoost close second (R² ≈ 0.98)
