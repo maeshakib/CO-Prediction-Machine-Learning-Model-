@@ -13,9 +13,7 @@ Tableau Bangladesh Population Dashboard [Link](https://public.tableau.com/views/
  Report [Link](https://github.com/maeshakib/z_resources/blob/0dae211943a4a2d212d95f95410295329429f517/DAS%20602%20Assignment%20WFP%20Dashboard%20report%20Student%20ID%20241001661.pdf)
 
 1.1	Background and Context
-Monitoring CO₂ is an important area of tackling climate change. Carbon dioxide(CO2 ) is a major GHG gas that makes up 80% of the GHG emissions. Therefore, the reduction of CO2 emissions will help in reducing GHG emissions produced by the county. Accurate forecasting of CO2 emissions is significant in choosing the optimum ways of reducing CO2 emissions. Accurate carbon measurements enable researchers and policymakers to identify sources and patterns of carbon emissions. Developed countries have well-established systems for tracking and monitoring emissions on the ground; such systems are scarce for poor and developing countries. The data for monthly C02 emission is taken from the Kaggle data set “Predict CO2 Emissions in Rwanda”.  The objective of this analysis is “to create a machine learning model using open-source CO2 emissions data from Sentinel-5P satellite observations to predict future carbon emissions.”
-These solutions enable governments and other actors to estimate carbon emission levels across Africa, even in places where on-the-ground monitoring is not possible.The open-source CO2 emissions data from Sentinel-5P satellite observations are used by Regression models like Linear, Decision Tree, Random Forest, HistGradient Boosting, Extra Trees, XGB Regressor, and AdaBoost Gradient Boosting models for forecasting CO2 emissions. The performance of the models is compared with each other using RMSE, MAE, and MAPE metrics, and the results show that the Random Forest outperforms all the other models in forecasting CO2 emissions from different sectors. Therefore, the Random Forest model is used to predict future emissions for the next 12 months.
- [MS1] In the First paragraph, provide a brief overview of the field of study, the specific area of machine learning, and the problem you are focusing on. Explaining why this area is important
+Monitoring CO₂ is an important area of tackling climate change. Carbon dioxide(CO2 ) is a major GHG gas that makes up 80% of the GHG emissions. Therefore, the reduction of CO2 emissions will help in reducing GHG emissions produced by the county. Accurate forecasting of CO2 
 
 1.2	Problem Statement
  
@@ -85,24 +83,10 @@ EDA was conducted to understand the underlying patterns, correlations, and distr
 <img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/442e374ac46b7a7d858cf5d6720da2fc8c658e07/trend%20analysis.png" /> <br>
 
 
-### Key Findings on data cleaning :
-I have utilized power query for data cleaning process.
-- Header Row Adjustment: Set the first row as the header to correct column naming. ensuring that the column names are accurate and correspond to the data.
-- Removing Unnecessary Rows: Removed the first row containing metadata. The first row contained metadata about the dataset, which needed to be removed.
-- Column Profiling: Enabled column profiling to check for errors; no errors were found.
-- Handling Null or Blank Values: Using column profiling, no significant errors were detected in the dataset under the "Error Value" section
-- Data Type Conversion: Converted "latitude" and "longitude" from text to Decimal Number for accurate geospatial mapping. Converted "price" and "usdprice" from text to Decimal Number for proper calculations.
-- Renaming Columns: Renamed “admin1” to Division and “admin2” to District for clarity
-- Outlier handling: I identified oil price 680 which is far from median 111 BDT, I replaced outlier with median price of the oil.
-
+ 
 #### 	Weekly Patterns analysis: Cyclical patterns in emissions throughout the year. 
 <img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/b8988957aec0e925573bfd28093d84382eb14e99/Weekly%20Patterns%20analysis.png" /> <br>
-
-## Home Page (Power bi Dashboard)
-  
-<img align="left" alt="Home page | PBI" width="1000px" src="https://github.com/maeshakib/z_resources/blob/d346d67b690eb378384b985e20022e6bfbc776ef/Dashboard%20Home%20Page.png" /> <br>
-<br>
-
+ 
 ### Critical Data Analysis Outcomes from page Year Over Year Comparision
  
 
@@ -153,5 +137,16 @@ DecisionTreeRegression
  
 Model Performance Metrics:
  
+3.6	Tools and Technologies
 
+A range of tools and technologies will be used to clean, analyze, visualize, and predict trends in the data. The primary tools are:
+•	Python: For data preprocessing, analysis, and machine learning (libraries: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn).
+•	Power Bl / Tableau: For visualization and dashboard creation.
+•	Visual Studio/ Jupyter Notebooks: For collaborative research and model development.
+
+<img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/7dce0cf8a393f1e7f41ef4afe9488e51e18d6edf/ML%20Models%20Performance%20Metrics.png" /> <br>
  
+
+<img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/5edc32fe6e52cfdc21c472fb1e11f3de628cecba/Machine%20Learning%20Models%20performance%20metrics%20bar%20chart.png" /> <br>
+ 
+  
