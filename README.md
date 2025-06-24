@@ -70,7 +70,9 @@ EDA was conducted to understand the underlying patterns, correlations, and distr
 •	Range: 0 to 3167.77
 
 #### Feature Correlations:
- 
+ <img align="left" alt="Year Over Year page | PBI" width="500px" src=" https://github.com/maeshakib/z_resources/blob/4f5b54ee5d80207545bb06df2b0bc0cd8a2d9059/Quantify%20correlations%20between%20features.png
+" /> <br>
+
 •	The target variable, emission, has weak correlations with most features, as indicated by lighter shades of green and yellow.
 •	longitude, Cloud_surface_albedo, and  CarbonMonoxide_CO_column_number_density show weak correlations with the target.
 
@@ -93,6 +95,8 @@ I have utilized power query for data cleaning process.
 - Renaming Columns: Renamed “admin1” to Division and “admin2” to District for clarity
 - Outlier handling: I identified oil price 680 which is far from median 111 BDT, I replaced outlier with median price of the oil.
 
+#### 	Weekly Patterns analysis: Cyclical patterns in emissions throughout the year. 
+<img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/b8988957aec0e925573bfd28093d84382eb14e99/Weekly%20Patterns%20analysis.png" /> <br>
 
 ## Home Page (Power bi Dashboard)
   
@@ -100,49 +104,54 @@ I have utilized power query for data cleaning process.
 <br>
 
 ### Critical Data Analysis Outcomes from page Year Over Year Comparision
-
-#### 1.Historical Food Price Trends: 
-from the market history of Bangladesh we know that
-- From 2005-2008 I found food price sharp increase, like Rice from 17.05 BDT to 30.51 BDT, Lentils from 44 to 80 , Oil 39 to 84 and Wheat 19.75 to 39 BDT, as external faction I identified Global - Food Price Surge in 2007–2008, depreciation of the U.S. dollar, export restrictions from the Countries like India and Vietnam impacted food prices during this periods.
-- From 2009–2012 also global food crisis significantly impacted Bangladesh, with rice prices peaking at 21–26 BDT per kg in 2012. Oil 60 to 99, Wheat 23 to 37 BDT.
-- From 2020–2024: The COVID-19 pandemic and subsequent supply chain disruptions, coupled with global inflation, pushed food prices higher. By 2023–2024, rice prices reportedly reached 41–49 BDT, Oil 79 to 129, Lentils 61 to 115 and Wheat 33 to 54 BDT per kg in some markets, seeing significant increases.
-
  
 
- ## CO2 Prediction  (Power bi Dashboard)
 
-<img align="left" alt="Year Over Year page | PBI" width="1000px" src="https://github.com/maeshakib/z_resources/blob/d346d67b690eb378384b985e20022e6bfbc776ef/Dashboard%20Prediction.png" /> <br>
-<br>
+3.5	Machine Learning Techniques and Models
 
+Machine learning techniques play a vital role in forecasting and decision support. This study employs three main categories of models:
+3.5.1	Time Series Analysis (ARIMA, SARIMA)
 
-### Critical Data Analysis Outcomes from page Year Over Year Comparision
+•	Purpose: Forecast  CO2  emission for Rwanda.
+•	Models Used: ARIMA for univariate forecasts, SARIMA for seasonality-based forecasts, for handling seasonality effects.
 
-
-#### 1.YoY Price (BDT) Comparison (Division):
-- This chart highlights the year-to-year price changes (in BDT) for specific commodities (e.g., wheat, rice, oil, lentils) within a selected Division and Selected Year with previous year.
-- It allows users to quickly identify short-term price fluctuations, such as the significant 18.778 BDT drop in oil prices, enabling targeted analysis of market volatility and informing immediate supply chain or pricing adjustments.
-
+ARIMA Model
+The data is first loaded in Jupyter Notebook and the year column is parsed using a parser function into the datetime format. The stationarity of time series is checked using test stationarity function that checks if a time series is stationary by plotting the rolling mean and performing the Dickey-Fuller test on the time series. If the rolling mean is straight and Dickey fuller’s value is less than 0.05 then the null hypothesis can be rejected and the time series is assumed to be stationary. The time series is made stationary by converting the actual value to log and subtracting the obtained log time series with its own log shifted version using the .shift() function. The number of times subtraction is done to make the time series stationary becomes the d (number of differencing). Once it is confirmed that the time series is stationary using the test stationarity function, the ACF( partial Autocorrelation Function) and PACF( Partial Autocorrelation Function) plots are plotted to get the value for p from PACF plot and q from ACF plot. The ARIMA model of order p,d,q (ARIMA(p,d,q)) is then trained and fitted using .fit() function. The model fit is checked by using the .fittedvalues function in plots. The .forecast() function is used for forecasting the values till the given timesteps and these values along with test values are converted to actual numbers using the np.exp() function as they are in the log
  
+format. Test and prediction values are plotted against each other and the RMSE, MAE, and MAPE values are calculated for them.
+
+
+
+3.5.2	Regression Models (Linear Regression, Random Forest)
+
+•	Purpose: Forecast operational costs and revenue.
+•	Models Used: Linear Regression for linear trends, Random Forest for non-linear forecasts for high-accuracy forecasts.
+
+
+I.	HistGradientBoostingRegression
+
+
+Model Performance Metrics:
+
+
+
+Model Performance Metrics:
+
+
+
+Random Forest is an ensemble learning method that constructs multiple Decision Trees and combines their predictions. It reduces overfitting by averaging results (for regression) or majority voting (for classification).
+The RandomForestClassifier or RandomForestRegressor from sklearn is used.
+
+The RandomForestRegressor model is used for predicting emissions based on a cleaned dataset. The data preprocessing involves dropping irrelevant columns and handling missing values by replacing them with the mean of the respective columns. The dataset is split into training and validation sets, with 80% of the data used for training and 20% for validation.
+
+The RandomForestRegressor is initialized with 100 estimators and a fixed random seed for reproducibility. The model is trained on the training set using the .fit() function. Predictions on the validation set are obtained with the .predict() function, and performance metrics such as RMSE, MAE, and R² score are calculated to evaluate the model's accuracy. These metrics are printed to understand how well the model predicts emissions.
+
+ Model Performance Metrics:
  
 
-## Used DAX code for analysis
-#### 1_YoY_AvgYearSalesDiff =
-```
-  VAR SelectedYear = VALUE(SELECTEDVALUE(wfp_food_prices_bgd[Year]))
-  VAR SelectedDivision = SELECTEDVALUE(wfp_food_prices_bgd[division])
-  VAR PrevYear = SelectedYear - 1
-  VAR YoY_AvgSalesSelectedYearThisDivision =
-  CALCULATE(
-  AVERAGE(wfp_food_prices_bgd[price]),
-  wfp_food_prices_bgd[Year]=SelectedYear ,
-  wfp_food_prices_bgd[division]=SelectedDivision,wfp_food_prices_bgd[pricetype]="Retail"
-  )
-  VAR YoY_AvgSalesPrevYearThisDivision =
-  CALCULATE(
-  AVERAGE(wfp_food_prices_bgd[price]),
-  wfp_food_prices_bgd[Year]=PrevYear ,
-  wfp_food_prices_bgd[division]=SelectedDivision,wfp_food_prices_bgd[pricetype]="Retail"
-  )
-  RETURN YoY_AvgSalesSelectedYearThisDivision -YoY_AvgSalesPrevYearThisDivision
-```
+DecisionTreeRegression
+ 
+Model Performance Metrics:
+ 
+
  
