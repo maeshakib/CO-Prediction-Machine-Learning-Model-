@@ -149,4 +149,10 @@ A range of tools and technologies will be used to clean, analyze, visualize, and
 
 <img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/5edc32fe6e52cfdc21c472fb1e11f3de628cecba/Machine%20Learning%20Models%20performance%20metrics%20bar%20chart.png" /> <br>
  
-  
+  The evaluation metrics show that:
+
+- Random Forest achieved the best performance (R² ≈ 0.99)
+- XGBoost close second (R² ≈ 0.98)
+- Decision Tree third (R² ≈ 0.97)
+- Linear Regression performed well but slightly lower (R² ≈ 0.95)
+
