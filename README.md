@@ -80,7 +80,7 @@ EDA was conducted to understand the underlying patterns, correlations, and distr
 ### Annual Trends: Variation in average CO2 emissions across years
 
 
-<img align="left" alt="Year Over Year page | PBI" width="1000px" src="https://github.com/maeshakib/z_resources/blob/442e374ac46b7a7d858cf5d6720da2fc8c658e07/trend%20analysis.png" /> <br>
+<img align="left" alt="Year Over Year page | PBI" width="500px" src="https://github.com/maeshakib/z_resources/blob/442e374ac46b7a7d858cf5d6720da2fc8c658e07/trend%20analysis.png" /> <br>
 
 
 ### Key Findings on data cleaning :
