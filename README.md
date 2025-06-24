@@ -12,8 +12,76 @@ Tableau Bangladesh Population Dashboard [Link](https://public.tableau.com/views/
  
  Report [Link](https://github.com/maeshakib/z_resources/blob/0dae211943a4a2d212d95f95410295329429f517/DAS%20602%20Assignment%20WFP%20Dashboard%20report%20Student%20ID%20241001661.pdf)
 
+1.1	Background and Context
+Monitoring CO₂ is an important area of tackling climate change. Carbon dioxide(CO2 ) is a major GHG gas that makes up 80% of the GHG emissions. Therefore, the reduction of CO2 emissions will help in reducing GHG emissions produced by the county. Accurate forecasting of CO2 emissions is significant in choosing the optimum ways of reducing CO2 emissions. Accurate carbon measurements enable researchers and policymakers to identify sources and patterns of carbon emissions. Developed countries have well-established systems for tracking and monitoring emissions on the ground; such systems are scarce for poor and developing countries. The data for monthly C02 emission is taken from the Kaggle data set “Predict CO2 Emissions in Rwanda”.  The objective of this analysis is “to create a machine learning model using open-source CO2 emissions data from Sentinel-5P satellite observations to predict future carbon emissions.”
+These solutions enable governments and other actors to estimate carbon emission levels across Africa, even in places where on-the-ground monitoring is not possible.The open-source CO2 emissions data from Sentinel-5P satellite observations are used by Regression models like Linear, Decision Tree, Random Forest, HistGradient Boosting, Extra Trees, XGB Regressor, and AdaBoost Gradient Boosting models for forecasting CO2 emissions. The performance of the models is compared with each other using RMSE, MAE, and MAPE metrics, and the results show that the Random Forest outperforms all the other models in forecasting CO2 emissions from different sectors. Therefore, the Random Forest model is used to predict future emissions for the next 12 months.
+ [MS1] In the First paragraph, provide a brief overview of the field of study, the specific area of machine learning, and the problem you are focusing on. Explaining why this area is important
+
+1.2	Problem Statement
  
+1.3	Research Objectives
+
+The primary objective of this research is 
+•	To build a machine learning model that predicts CO₂ emissions in Rwanda with high accuracy using open-source CO2 emissions data from Sentinel-5P satellite observations. This study will employ a range of machine learning techniques, including linear and non-linear models, and compare their effectiveness in handling Rwanda's specific data characteristics. 
+•	The scope of the research will be confined to CO₂ emissions related to economic and population data, energy consumption, and transportation, aiming to understand which factors have the most significant impact on Rwanda's emission profile. The study will not account for external, unmeasurable factors such as climate policies that may indirectly influence emissions.
+•	Comparing the performance of all models to find the best forecasting model.
+•	Forecasting the future CO2 emissions using the best model.
+•	Publishing the information so that appropriate policies can be implemented.
+1.4	Research Questions
+
+The following key research question will be explored:
+
+Which machine learning model is most effective in forecasting Rwanda's future CO₂ emissions using Sentinel-5P satellite data??
+This central research question will be supported by the following sub-questions:
+•	Which machine learning algorithms perform best in predicting CO₂ emissions with high accuracy in Rwanda?
+•	What are the most influential factors contributing to CO₂ emissions in Rwanda based on the models?
+•	How well does the best-performing model forecast future CO₂ emissions in Rwanda?
+•	How can the findings from this study inform the development of effective policies to mitigate CO₂ emissions in Rwanda?
+
+3.	Research Methodology
+
+3.1	Research Design and Approach
+
+
+
+3.3	Data Preprocessing and Cleaning
+
+To ensure the accuracy and consistency of the datasets, data preprocessing and cleaning are essential. This process involves:
+•	Data Cleaning: Identification and removal of missing, duplicate, and irrelevant entries.
+•	Data Transformation: Conversion of data formats, such as standardizing currency units, converting dates into a unified format.
+•	Tools Used: Python libraries such as Pandas, NumPy, seaborn, sklearn, matplotlib are used to clean and merge the data.
+
+•	The dataset has a significant number of missing values. I will handle these missing values by imputing them with the mean for numerical features and the mode for categorical features. I will then check the skewness of the target variable and apply techniques to handle skewness.
+•	The skewness of the target variable, emission, is 10.17, indicating a significant right skew. To handle this skewness, I will apply a Box-Cox transformation to the target variable. This transformation will help to normalize the distribution of the target variable, making it more suitable for linear regression models.
+•	I have applied the Box-Cox transformation to the target variable, emission. Now, I will split the data into training and testing sets and then apply the models you requested. I will evaluate the performance of each model using RMSE, MAE, and MAPE.
+•	I have split the data into training and testing sets. Now, I will apply the models you requested and evaluate their performance using RMSE, MAE, and MAPE.
+•	I have removed the ID_LAT_LON_YEAR_WEEK column from the dataset. Now, I will re-run the model training and evaluation process to see if the error is resolved.
+•	The raw data cannot be directly used for training the models as it could contain impurities like missing values (NA), special characters or wrong values, therefore, the acquired data is always pre-processed to remove the data impurities. RStudio which is an open source software, was used for cleaning the dataset for the research.
+
+
+3.4	Exploratory Data Analysis (EDA)
+
+EDA was conducted to understand the underlying patterns, correlations, and distributions in the data. Visualization tools like Power Bl, Tableau, and Python (matplotlib, seaborn) were used to create interactive dashboards and plots. Histogram, scatter plots, and box plots were used to detect outliers, while correlation heatmaps identified the relationships between variables.
+
+•	Statistical Summary of CO2 Emissions: 
+•	Mean emission: 81.94
+•	Median emission: 45.59
+•	High variability (std: 144.30)
+•	Range: 0 to 3167.77
+
+#### Feature Correlations:
  
+•	The target variable, emission, has weak correlations with most features, as indicated by lighter shades of green and yellow.
+•	longitude, Cloud_surface_albedo, and  CarbonMonoxide_CO_column_number_density show weak correlations with the target.
+
+•	UV_AerosolLayerHeight_aerosol_pressure and UV_AerosolLayerHeight_aerosol_height show a strong negative correlation (-0.99), suggesting a strong inverse relationship.
+•	All of the features in this dataset have very weak correlations with the emission variable (less than 0.10). This suggests that none of these features, individually, have a strong linear relationship with emissions. To improve prediction or understanding of emissions, you may need to explore other factors or apply more complex models that can capture non-linear relationships.
+
+### Annual Trends: Variation in average CO2 emissions across years
+
+
+<img align="left" alt="Year Over Year page | PBI" width="1000px" src="https://github.com/maeshakib/z_resources/blob/442e374ac46b7a7d858cf5d6720da2fc8c658e07/trend%20analysis.png" /> <br>
+
 
 ### Key Findings on data cleaning :
 I have utilized power query for data cleaning process.
